@@ -1,0 +1,20 @@
+Commands and uses
+ls : is use to the listing of current directory
+ls –al : for the formatted listing with the hidden files
+cd dir: use in changing directory to dir
+cd : Change to a home
+pwd: Show current directory
+mkdir dir: It’s use to create a directory dir
+rm file: use in deleting directory file
+rm –r file: it’s use for deleting forcefully or remove file
+ln –s: it’s used to create symbolic link link to file
+touch file: for to help create file
+cat: is use to places standard input into file
+man command: show the manual for command 
+df: show disk usage
+du: show directory space usage
+ps command: help display your currently active processes
+kill pid:it’s a command use to kill id pid when indicated
+fg command: it is use in bringing the most recent foregroup
+cat /proc/cpuinform: cpu information
+
