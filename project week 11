@@ -1,0 +1,8 @@
+
+Allen Zarr posted Nov 6, 2017 9:00 PMSubscribed
+Debian pbuilder packaging is a procedure driven system, it is a significant aid in determining whether a given build issue is a bug in the implementation of the builder or a problem with the package being built to have multiple implementations of a build system. In order to maintain this, the leading build systems must all have strong backers supporting them, in the essence of collaborative competition towards ensuring that we have the most correct available implementations of policy.
+
+So precisely which packages are pulled to satisfy build-dependencies or how they are pulled, the precise mechanism by which the various targets in debian/rules are called, may differ, causing some slight differences in behavior in very specific cases for certain packages. Most of the time this represents a bug in one or the other implementation, and sometimes reflects a lack of clarity in packaging policy in any case, behavior changes ought to be resolved.
+
+            However, from my understanding is that pbuilder development initially focused on the needs of the develop as end-user and sbuild development initially focused on the needs of build and archive administrator’s. Recently, these focuses have switched, as people have built archive management systems based on pbuilder, and more helpful developer tools using sbuild
+In summary, pbilder and sbuilder are be
