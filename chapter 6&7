@@ -1,0 +1,59 @@
+Chapter 6 and 7
+User Space: It’s a sane environment for applications (Unlike the kernel)
+
+The Main components are
+•	Programs –examples: init and shell
+•	Libraries example: libs
+•	Configuration files in /etc
+•	Device nodes in /dev
+•	User data in /home
+
+The root file system
+•	Mounted by the kernel during boot
+•	Requires a root .. kernel command line 
+•	Ram disk (initramfs)
+•	Storage device: flash, SD, hard disk
+•	Networks: nfs
+
+“Got a rootfs with the board”
+•	As with the toolchain, this is usually a trap!
+•	Board vendors over-configure to show off the board
+•	Bloated root file system
+•	Slow boot
+•	Yet, they only offer a limited set of packages
+•	And limited or no update service
+Other options for a root file system
+
+	Roll your-own (RTO)
+	Use an integrated build tool
+	Buildroot
+	Open Embedded
+	Ubuntu or Debian
+Single binary that masquerades as many Linux utilities, including
+	Init
+	Ash  (a Bourne shell)
+	File system utilities: mount, umount
+	Network utilities: ifconfig, route
+	And of course, the vi editor
+Busybox example
+Ls –l  /bin
+So, whenever you type for example
+Cat /etc/inittab
+Launches /bin/busybox with argv [0] = “/bin/cat”
+
+Busybox main() parses argv[0] and jumps to cat applet
+Init
+
+
+
+•	/sbin/init is the first program to be run
+•	change by setting kernel parameter “init=…”
+•	Two common version of init
+•	Example by buildroot
+Busybox init
+
+Summary:
+Starts when kernel mounts rootfs
+First program to run is (
+default) /sbin/init
+Both busybox init and system V init are common
