@@ -1,0 +1,40 @@
+Allen Udith Zarr
+Linux- Networking 3
+Case study
+27 September, 2017
+Brief Story of Linux Operating System.
+Linux is the most essential part of the computer operating system which have been incredible to aids support the Unix in a thoughtful and mechanical manners, as an open source, and free basis.
+Linux kernel which has a very deep hardware supporting system can also function in a deplete rapport with other server computers, desktop-laptop computers, smartphones, a new generation of TVs, and tablets.
+The Linux kernel was official announced on 25 August by the 21 years old Finnish student Linux Benedict Torvalds, where the name derived from as “Linux”. The next year, Linux kernel was relicensed under the GNU GPL. For the first time it was referred to as “Linux distribution” are founded. In 1993, almost thousands developers worked on the Linux kernel, with their hard work and creativity the kernel is adapted to the GNU environment, that brought forth an impressive cycle of application types for Linux. 
+Later in the same year of 1993, the Debian project was also founded, which is use every part of the world as the largest community distribution. In the march of 1995, Torvalds justifies all of the parts of the kernel to be better and perfectly considerable on the market and much convenience for more users, and he was encouraged to release its latest version of 1.0 of Linux. The XFree86 project massive added a graphical user interface.
+Linux is connected to the DEC Alpha and to the Sun SPARC. Over the passed years it is connect to an ever impressed and greater number of opportunities for the its users interface, in the year 1995. But at the beginning of very project, the various developers were considered for issuing source only the packages. However, each packages were containing the upstream source codes and a Debianized covering records, and list of binaries themselves. They later came to the realization that most of the binary consisting of distribution scheme would much effective and needed. The earliest packaging materials, written by Ian Murdock and referred to as dpkg, which was built packaging in a Debian-specific binary structure, and can be utilize later to also unpacked and the installation process of records in the built package. Ian Jackson used the previous development of packaging material to rename the tool itself dpkg-deb and writing a front-end program to named dpkg in order to help facilitate the use of dpkg-deb and provided the addictions and contradiction that is use nowadays Debian operating system. The packages which was produced by the tools have a header and listing the version of the tool used to build the package and an offset within the file to a tar-produced archive, that was been separated from the header by some control information.
+	At time goes on with the familiarities of the tool, some augment materializes among the very members of the project, which most of them felt the Debian-specific format produced by the dpkg-deb could have been left out in favor of the format that was fabricated by the ar program. Later, after many years of reviewing records formats and separately reviewed packaging tools, the ar system was approved. The main essence of the revise is that it enhanced the possibilities for the Debian package to be un-packaged on any Unix and Linux more like any others system without the need to operate on unreliable executable. That is only standard tools present on various Unix operating system like ‘ar’ and ‘tar’ that demand to be unpack a Debian binary package and be tested its subject.
+	In the May, the Tux mascot was founded by another developer by the name of Larry Ewing in1996 when all members of the tools developer solely agreed to the suggestion made by one Alan Cox and further advanced by Linus Torvalds on the Linux kernel mailing content. The idea of Linux mascot which was invented by Linus Torvalds, who declared to have the ownership restricted penguin after careful nibbled by a penguin.
+	The 9th June, the version 2.0 of Linux kernel was also released. It was another massive improvement comparing to the earlier version of the Debian which became more reliable and stable for user interface kernel to support multiple operating processors in a single system (SMP) and many more processors kinds. By then Linux becomes a serious alternative for multiple entities/ companies. Because of its improved performance that is significant restructuring of memory management and significant improvements in task scheduling. These work cooperatively in many ways advance both throughput (the total amount of work that can be done in a considerable time frame) and interactive response to s user’s input (typing, mouse movements, etc.)
+	In January 9th, 1997- the first Linux virus was discovered, deplete does not avoid the the security of the system, which depends on tools developers with the privilege to do get some solution, dumb and reminds users to reinstall digitally signed software from trustworthy and reliable sites only and to as well check the signatures before installing any on their user’s interface. That makes it easier to write a virus for Linux because it’s open source and the code is available.
+	In addition, some group of programmers started developing the various graphical user interface KDE, which is destined to become a free replacement for GNOME, which by then, wholly relies on the proprietary, Qt toolkit. Later on the team spoilt up and joins with the existing X window standards body to form the X.org foundation, that resulted in a substantially faster development of the X window server for Linux. The project went on to open SUSE started face distribution from Novell’s community. Also the project openOffice.org introduced the version 2.0 that now supports OASIS OpenDocument standards in October of 2005. Whiles in the earlier year of 2006, Oracle releases its own version distribution of red hat. Novell and Microsoft announced a cooperation for better interoperability. Dell also starts distributing with laptops with Ubuntu pre-installed in them for the user interface in 2007. Version 3.0 of the Linux kernel is released in 2011, which consist of Desktop, Gaming platform, server and clusters, Mobile devices, Embedded system, and Supercomputers.
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+References
+Real word Business Technology. (2016, November 17). A Brief History of Linux. Retrieved from http://www.tomsitpro.com/articles/history-of-linux,1-3417.html
+Richard Stallman; Posting to net.unix-wizards;, R. (1983). 
+William Thompson, W. (2015). 
+
