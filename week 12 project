@@ -1,0 +1,104 @@
+The Linux Debian package components structure
+
+Debian is known to be upgradable at any time without a reboot of the system, even from a remote terminal. A Debian system is usually only installed once in its lifetime, except the root disk suffers from hardware damage and requires a new installation. In other words, Debian systems don't get installed every now and then but upgraded to the current stable or unstable distribution instead.
+
+Package Basics
+
+Before we continue we need to draw attention to the basics of packages and management. In order to help maintaining the GNU/Linux system you have installed the Debian project splits the installed software into small partitions called packages. These packages contain the actual data or software that you install on your system.
+
+With packages it is quite easy to install certain parts of the system and leave away others. For example, if you want to used KDE but not GNOME you don't have to install GNOME. However, thanks to sophisticated dependencies should a KDE program require a part of the GNOME system, this part will be installed as well, but only the required part.
+
+The project distinguishes between source and binary packages. The binary packages are what the user or administrator will see most of the time. They contain pre-compiled software which is installed on a Debian system.
+
+One binary package is always associated to exactly one source package, which — as the name suggests — contains the source for said binary package. In order to provide more sophisticated dependencies several source packages build more than only one binary package.
+
+Static Package Information
+
+A binary package consists of more than just a set of files that are installed on the system. Next to the installed data are meta-information about the package and its relationship to other packages in the distribution.
+
+This information is displayed with apt-cache show package anddpkg -I package.deb respectively if the package is locally available already. These parts are used by the packaging system to determine from where to fetch a package, which other packages are required, which other packages must not be installed at the same time, which other packages may be overwritten and so on.
+
+Most of the information is provided by the maintainer of the given package and is subject to permanent adjustments during the lifetime of the package. Especially when talking about libraries such meta-inforation will change with future updates.
+
+Conflicts
+
+This information is not used very often since most packages can be installed and run along with others. However, some packages are conflicting with others since they provide the same files or allocate the same port or provide the same service. These can't be installed at the same time. This field will tell the package manager to abort with an error message or to remove the other package so that the new one can be installed.
+
+When using the unstable distribution, it is possible that you notice apt-get wanting to remove half of the installed system. This often originates in a library transition that includes a new conflict. Before the other packages are recompiled to use the new Library, they are part of the conflict. Usually it is sufficient to just wait a few days until they have been uploaded again and are compiled against the new library.
+
+For example, there can only be one mail-transport-agent like Exim, send mail, postfix etc. or there can only be one development package of a library (contrary to the runtime package that may be installed with several versions).
+
+Replaces
+
+This field defines that the new package replaces (parts of) another package. With this definition it is possible that two packages that contain the same files may be installed at the same time.
+
+This is often used when files are moved from one package to another, so that the package manager can install the new versions even though there are some file conflicts.
+
+Provides
+
+This field is used for virtual packages and when a package is renamed. It basically tells the package manager that this package provides another package. In the case of a virtual package the semantic is that this package provides a certain functionality that other packages may depend on.
+
+In case of a real package, i.e. when another package was renamed, it means that the package manager may remove the other one if it also replaces it at the same time.
+
+Package Managers
+
+The packages on a Debian system are maintained by dpkg. This is the package maintenance system. There are several frontends to this system. The most commonly used and most sophisticated one is apt-get. However, the older frontend dselect still exists and is in use by those who are used to it.
+
+A more up-to-date text-based frontend to the package maintenance system is aptitude which is used to upgrade from one distribution to another these days. Those who prefer graphical programs can run Synaptic which enables you to install, upgrade and remove software packages in a user-friendly way. Finally, there is also kpackage that can cope with Debian packages.
+
+Installed Packages
+
+There are two lists of installed packages available on Debian. The original file these lists are created from is /var/lib/dpkg/status. This file must not be corrupted, or otherwise your system is hosed. This is the main database for the package manager dpkg.
+
+The Debian package system keeps an older copy from the last but one dpkg run in /var/lib/dpkg/status-old. In order to preserve the system for greater damage upon a crash or filesystem corrupting a daily backup of this file is created into /var/backups when the file differs from the last copy. The backup code is in /etc/cron.daily/standard.
+
+The informal list is created by the command dpkg -l or by starting deselect and using the Select item. Or by using any of the other package manager frontends. This list consists of the name of the package (stripped down to some 40 characters), the installed version of each package and a short description. This is intended to be human readable.
+
+For technical purpose you can make dpkg to generate a list of packages and their selection status (i.e. install, hold and deinstall). This is created by dpkg --get-selections. This output is intended to be parsed by a program again, such as dpkg --set-selections which will change the status of packages in its internal database. The dselect-upgrade action from apt-get will install all new packages afterwards.
+
+Information about Packages
+
+As mentioned above each package consists of installed files and metadata. To display a part of the package information you have to issue dpkg -s package. Among others you will see a description of the package as well as dependency information and information about configuration files used by this package.
+
+The mentioned configuration files will not automatically be overwritten on an upgrade if you have modified them manually. You will be asked if you want to overwrite it or keep the old file. However, on an upgrade if the file was not modified and the package comes with a new version it will be overwritten.
+
+Locate Files and Packages
+
+One advantage of using package management to install packages is that it keeps information about files and packages somewhere on the local system. The benefit is that you can map any file on the local system to a package and display status information.
+
+To find out which package contains a given file, issue the command dpkg --search file or dpkg -S file. If you are able to specify the absolute path, do that, if not dpkg will display all packages and files it has found.
+
+Since this method only works for installed files and packages you'll have to issue a different command when the file is not installed on your system or the package isn't. This is useful especially if you are looking for a package that contains a command you only have about.
+
+The Debian project provides a web-based search tool to look into their packages databases. On debian.org you can search for package names and descriptions as well as for files within any package that is distributed by the Debian project.
+
+Debian provides a file that contains a list of all files of the distribution. It is called Contents-$arch.gz and is found on their FTP-server in /debian/dists/$dist/. Since there are differences among different architectures (i386 for example has lilo, sparc has silo etc.) there is one file for each architecture.
+
+If you want to use a current version of that file, there is no need to fetch it every day. Due to the time requirements for such a file to get regenerated (approximately one hour per file) these files are only generated once per week. Thus, it is sufficient to update your copy once a week. New versions of packages often don't imply a change in the Contents files, but only entirely new packages or splitted/merged packages. If you don't need such an up-to-date copy, for the unstable distribution, it is usually sufficient to make a sporadic update or update that file once per week.
+
+The Contents files are plain text files, so you can simly use grep or zgrep respective to locate a file or package in it. There is also a very simplistic frontend that makes use of this and is also able to update the file. Since the author uses it for the unstable distribution that distribution is hardcoded in it. Check out findpkg.
+
+New Packages
+
+There exist a couple of ways to install new packages on a Debian system. First of all, the package should be in .deb-format. If it is not and it is a binary package, try using alien to convert it.
+
+If you have already fetched a .deb-file you can install it with dpkg --install file.deb or dpkg -i file.deb. The package manager will then check all dependencies and install the package if no problems occurred. You can add more packages to the command line. If the dependencies are not fulfilled it will bail out.
+
+If the package does not yet exist locally, you may want to use apt-get install package. APT will check if all dependencies are fulfilled and will download the other required package as well. When there are conflicts, it will try to resolve them, which may result in the removal of other packages.
+
+APT stores these files in /var/cache/apt, so if the connection goes down in the middle of the download, just issue the command again. If you add -d to the command line, APT will also only download the packages but not install them. If you add -s, APT will simulate the installation and display some information.
+
+Even if it may be a little bit confusing, to upgrade a package to the newest version in the Debian archive, you also have to use apt-get install package. APT will automatically use the most recent version available according to its internal database.
+
+Package Database Update
+
+Both dpkg and APT store information about available packages on the local system. Before you can access newer packages from Debian archives, you'll have to update the internal database against updated sources. To update the internal database of available packages, issue the command apt-get update.
+
+All package sources are configured in the sources.list file. After a new installation this file is initialised with proper sources, including the installation CD or DVD. When you don't need this anymore, just comment out the respective line before executing apt-get update.
+
+If you use a Debian archive provided on the Internet this will usually download several megabytes of index files. You will have to issue this command more frequently if you use the testing or unstable distribution instead of the stable one.
+
+Subsequent calls of apt-cache show will show both the installed and the new version of a package if it has been updated in the meantime. All new installations of packages refer to the new database and hence will always install the most recent version of a package.
+
+Even though you will normally not need to know the details, there may be situations in which they are helpful. APT saves the entire package index files it has downloaded from the Internet. They are placed in the directory /var/lib/apt/lists. This directory also contains descriptions and their translation into other languages.
+
