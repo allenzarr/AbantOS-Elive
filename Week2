@@ -1,0 +1,36 @@
+Allen Zarr
+Linux-Fall2017
+September 6th,2017
+
+Commands                                                      Functions
+/bins                                   
+ 1.tar                                                          It’s use simply to combine a few            files into a single, for easy storage and distribution.
+It can be use “tar –cvf file.tar inputfile1 inputfile2.
+2.ls                                                          It’s use to list directories contents
+3. ps                                                       it’s use to report process status
+4. ln                                                        to make links between files.
+5.su                                                         it’s use to change user id.
+
+/sbin commands
+1.	Ifconfig:                                  it’s use to configure network interface(optional)
+2.	mkfs:                                    command use to build specific filesystem(optional)
+3.	reboot: command is use to reboot the system(optional)
+4.	fsck: file system check and repair utility(optional)
+5.	fdisk: partition table manipulator(optional)
+
+/urs/sbin commands
+1.-l : the contents of the rusage structure are printed.
+2.-p : The output is formatted as specified by IEE std.
+3.cp : it’s use to copies file directories.
+4.env: is a command use that displays the value of a single environment variable.
+5. grep –l: enables the command to be case insensitive.
+ 
+usr/sbin
+/etc/qconfig: Queue configuration file
+/etc/qconfig.bin:. Digested, binary version of the /etc/qconfig file.
+/var/spool/lpd/stat*: information on the status of the queues.
+/var/spool/qdaemon: Temorary copies of enqueued files.
+/var/spool/lp/tmp/system/*-N: 
+N is an integer and >0) data files specified in ‘*-0’ file.
+
+
