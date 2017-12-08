@@ -1,0 +1,22 @@
+Enlightenment Foundation Libraries Research (EFL):
+ 
+Enlightenment Foundation Libraries are set of graphic libraries that grew out of the development of powerful and easy to use set of tools extend the capabilities of both the enlightenment window manager and other software projects based on the EFL. The libraries are meant to be portable and optimized to be functional even on mobile devices such as smart phones and tablets. The libraries were created for version 0.17 of the window manager. EFL is developed by Enlightement.org with some sponsorship from Samsung and Profusion. The Enlightenment Foundation Libraries (EFL) are a collection of libraries so powerful, flexible, and easy to use that they present a strong platform on which to develop nearly any graphical application you could think of.
+         The EFL begins with limb2, a general image manipulation and rendering library, and Evas, our canvas library. Because Evas is built on several different selectable engines (Linux FrameBuffer, DirectFB, X11, OpenGL, QTopia, etc.) the platform is extremely portable, which translates thru to all of the libraries built on top of it.
+ 
+ 
+Core components of Enlightenment Foundations Libraries are:
+Evas is the EFL canvas library which is used in creating areas, or windows, that application can draw on in an X window system. The EFL uses hardware- acceleration where possible to allow it to work faster, but is also designed tp work on lower-end hardware, falling back to lower color and quality if necessary.
+Ecore is an event abstraction, and modular convenience library, intended to simplify a number of common task. It is modular, so applications need only call the minimal required libraries for a job. Ecore simplifies working with X, Evas, and also a few others thing, such as network communication and threads, or is a modular convince library that in its base provides timers, callback functionality, and loop management for event handling. Ecore's various modules can simplify the setup of an X11 draw able for general use (Ecore_X11), an X11 draw able for use with Evas (Ecore_Evas), manage IPC (Ecore_IPC), manage BSD Sockets (Ecore), management of the FrameBuffer (Ecore), and more. Because Ecore can simplify so many tasks that are used in conjunction with Evas it has lived up to its name as the core component of nearly any EFL application.
+ 
+Embryo implements a scripting language used by other parts of the EFL, such as Edije. The language has a C-like syntax, and was based on the small language and we can provide scripting ability to the interface component itself to harness even more power and flexibility
+ 
+EET is a library that is designed to store and load all types of data, locally or through a network stream. It is designed to be light-weight, efficient and quick. EET forms the basis of theme files in the EFL, that is if you want to install a theme for Enlightenment or other theme able EFL app, you would be installing an EET-format life, which contains all of the theme graphics and configuration and it does not need to be extracted onto the filesystem in order to be used.
+Elina is the base library of all data types used by EFL. It is designed to reduce CPU-usage as much as possible without using too much memory. It provides list and inclined list, hash, red-black tree, shared string, rectangle, array, iterator and accessor, memory pool, module, fixed point and magic checker helper.
+However, Enlightenment Foundations Library itself is a small and could easily be used without any other EFL libraries.
+         EFL also include some helper Components:
+Ethumb
+Emotion
+Elementary
+ELO
+In summary, EFL is very portable. Since their developers are receptive to contributions, so all the that was developed and integrated upstream, at the official project but what remains here is just the package system, which is specific to memo of used.
+ 
